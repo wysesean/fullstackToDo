@@ -32,7 +32,7 @@ const app = function() {
 	ReactDOM.render(<GummyMenu />, document.querySelector('.container'))
 	setTimeout(function(){
 		$(".slider").fadeIn(500);
-	}, 1000);
+	}, 50);
 	new AppRouter()
 	Backbone.history.start()
 }

@@ -23,7 +23,8 @@ var GummyMenu = React.createClass({
 	getInitialState: function(){
 		return STORE.data
 	},
-	changeHash(hashValue){
+	handleClick(e,hashValue){
+		console.log(e.target)
 		location.hash = hashValue
 	},
 	render:function(){
@@ -32,17 +33,17 @@ var GummyMenu = React.createClass({
 				<div id='input-wrapper'>
 					<nav className='slider-nav'>
 						<div id='button-wrapper'>
-							<div onClick={()=>{this.changeHash('allTasks')}} className={this.state.activeValue==='allTasks'?'allTaskButton active task-button':'allTaskButton task-button'}>
+							<div onClick={(e)=>{this.handleClick(e,'allTasks')}} className={this.state.activeValue==='allTasks'?'allTaskButton active task-button':'allTaskButton task-button'}>
 									<h3>All</h3>
 							</div>
 						</div>
 						<div id='button-wrapper'>
-							<div onClick={()=>{this.changeHash('doneTasks')}} className={this.state.activeValue==='doneTasks'?'doneTaskButton active task-button':'doneTaskButton task-button'}>
+							<div onClick={(e)=>{this.handleClick(e,'doneTasks')}} className={this.state.activeValue==='doneTasks'?'doneTaskButton active task-button':'doneTaskButton task-button'}>
 								<h3>Done</h3>
 							</div>
 						</div>
 						<div id='button-wrapper'>
-							<div onClick={()=>{this.changeHash('undoneTasks')}} className={this.state.activeValue==='undoneTasks'?'undoneTaskButton active task-button':'undoneTaskButton task-button'}>
+							<div onClick={(e)=>{this.handleClick(e,'undoneTasks')}} className={this.state.activeValue==='undoneTasks'?'undoneTaskButton active task-button':'undoneTaskButton task-button'}>
 									<h3>Undone</h3>
 							</div>
 						</div>

@@ -55,13 +55,19 @@ var TaskElement = React.createClass({
 	tickCheckBox:function(id){
 		ACTIONS.toggleTask(id)
 	},
-
+	deleteItem:function(e,id){
+		ACTIONS.deleteTask(id)
+	},
 	render:function(){
 		return(
-			<div id='task-element' onClick={()=>{this.tickCheckBox(this.props.uniqueID)}}>
+			<div id='task-element'>
 				<div className='task-wrapper'>
-					<div className={this.props.completed?'tickBox ticked':'tickBox'}></div>
+					<img id='explosion-gif' src="" alt="" />
+					<div onClick={()=>{this.tickCheckBox(this.props.uniqueID)}} className={this.props.completed?'tickBox ticked':'tickBox'}></div>
 					<p className={this.props.completed?'crossed':''}>{this.props.taskDescription}</p>
+					<div className='icon-wrapper' onClick={(e)=>{this.deleteItem(e,this.props.uniqueID)}}>
+						<i className="material-icons">delete_forever</i>
+					</div>
 				</div>
 			</div>
 		)

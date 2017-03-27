@@ -197,8 +197,14 @@ textarea:focus::-webkit-input-placeholder{
 		background: #666;
 	}
 }
-
+.icon-wrapper{
+	z-index: 100;
+	position:absolute;
+	left: 90%;
+}
 .crossed{
 	text-decoration: line-through;
 	opacity: .5;
 }
+
+
