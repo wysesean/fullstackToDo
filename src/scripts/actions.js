@@ -1,5 +1,7 @@
 import STORE from './store'
 import {TaskCollection, TaskModel} from './models/taskModel.js'
+import User from './models/userModel.js'
+
 var ACTIONS = {
 	//Moves task from done to undone
 	addTask: function(inputObj){
@@ -59,6 +61,24 @@ var ACTIONS = {
 			}
 		)
 	},
+
+	registerUser: function(userData) {
+		User.register(userData)
+			.done(
+				//success function
+				function(resp) {
+					alert(`new user ${resp.email} registered`)
+					console.log(resp)
+					ACTIONS.logUserIn(userData.email, userData.password)
+				}
+				)
+			.fail(
+				function(err) {
+					alert('problem registering user!')
+					console.log(err)
+				}
+			)
+	}
 }
 
 export default ACTIONS

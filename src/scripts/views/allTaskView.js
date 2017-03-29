@@ -17,9 +17,6 @@ var AllTaskView = React.createClass({
 	},
 	render: function(){
 		let classValue = 'slide allSlide'
-		if(this.state.activeValue==='allTasks'){
-			$('.slider').css('background-color','#e94f37')
-		}
 		return(
 			<div className={classValue+=this.state.activeValue==='allTasks'?' active':''}>
 				<AllTasksList tasks={this.state.taskCollection} />

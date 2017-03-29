@@ -17,9 +17,6 @@ var UndoneTaskView = React.createClass({
 	},
 	render: function(){
 		let classValue = 'slide undoneSlide'
-		if(this.state.activeValue==='undoneTasks'){
-			$('.slider').css('background-color','#3f88c5')
-		}
 		return(
 			<div className={classValue+=this.state.activeValue==='undoneTasks'?' active':''}>
 				<UndoneTasksList tasks={this.state.taskCollection.where({completed:false})} />
