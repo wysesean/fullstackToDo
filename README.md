@@ -27,7 +27,7 @@ Technologies used:
 ### Installation
 ```
 git clone git@github.com:wysesean/fullstackToDo
-cd etsyCloneReact
+cd fullstackToDo
 npm install
 mongod
 npm run go
