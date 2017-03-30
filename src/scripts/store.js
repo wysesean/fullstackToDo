@@ -5,7 +5,6 @@ var STORE = Object.assign({},Backbone.Events,{
 	data:{
 		taskCollection: new TaskCollection(),
 		activeValue: '',
-		bounceState: false
 	},
 	set: function(attrs){
 		this.data = Object.assign(this.data, attrs)

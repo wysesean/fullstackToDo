@@ -1,7 +1,7 @@
 import React from 'react'
 import TextInputField from './textInputField'
 import STORE from '../../store'
-import LoginRegister from '../components/loginRegister'
+import LogoutButton from '../components/logoutButton'
 
 var NavMenu = React.createClass({
 	componentDidMount: function(){
@@ -38,7 +38,7 @@ var NavMenu = React.createClass({
 				<div className='text-input'>
 					<TextInputField />
 				</div>
-				<LoginRegister />
+				<LogoutButton />
 			</div>
 		) 
 	}

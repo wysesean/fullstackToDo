@@ -8,7 +8,10 @@ html{
 	padding: 0;
 	margin: 0;
 	font-family: 'Roboto', sans-serif;
+}
 
+button{
+	cursor: pointer;
 }
 
 .nav{
@@ -30,7 +33,6 @@ html{
 	width: 100%;
 	height: 100vh;
 	overflow: hidden;
-	
 	display: none;
 }
 
@@ -63,9 +65,6 @@ html{
 	color: white;
 }
 
-.loginSlide{
-	background-color: #ddd;
-}
 .allSlide{
 	background-color: #e94f37;
 }
@@ -210,7 +209,7 @@ textarea:focus::-webkit-input-placeholder{
 #login-register-link{
 	position: fixed;
 	top:0;
-	right:0;
+	right:5px;
 	font-weight: bold;
 	font-size: 2rem;
 	color: #666;
@@ -221,4 +220,110 @@ textarea:focus::-webkit-input-placeholder{
 	}
 }
 
+.loginMenu{
+	background-color: #ccc;
+}
+.registerMenu{
+	background-color: #aaa;
+}
+
+// formStyle
+.formStyle{
+	position: absolute;
+	width: 100%;
+	top: 22%;
+	left: 50%;
+	transform: translate(-50%, 0);
+
+	>input{
+		margin-top: 10px;
+		
+		z-index:1000;
+		outline:none;
+		box-sizing: padding-box;
+		padding: 5px;
+
+		background-color: white;
+		width: 33%;
+		height: 50px;
+		font-size:30px;
+		border-radius:6px;
+		box-shadow:2px 2px 8px rgba(0,0,0,.3);
+		border:0;
+		text-align: center;
+	}
+	>button{
+		margin-top: 10px;
+		
+		z-index:1000;
+		outline:none;
+		box-sizing: padding-box;
+		padding: 5px;
+		
+
+		background-color: #888888;
+		width: 33%;
+		height: 50px;
+		font-size:30px;
+		border-radius:6px;
+		box-shadow:2px 2px 8px rgba(0,0,0,.3);
+		border:0;
+		font-weight: bold;
+		color: #666;
+		text-align: center;
+		
+		&:hover{
+			background-color: #444444;
+			color:white;
+		}
+	}
+} 
+
+.login-nav{
+	position: fixed;
+	top:12%;
+	right: 50%;
+	z-index: 5000;
+	margin: 0;
+	padding: 0;
+	width: 34%;
+	text-align: center;
+	cursor: pointer;
+	transform: translateX(50%);
+	
+	>#button-wrapper{
+		padding:5px;
+		display: inline-block;
+		width:50%;
+
+		>div{
+			float: center;
+			border: 1px solid white;
+			width: 100%;
+			height: 50px;
+			z-index: 2;
+			padding:5px;
+			cursor: pointer;		
+			transition-duration: .25s;
+			background-color: #ddd;
+			box-shadow: inset 0px 2px 0px 0px rgba(238,238,238,1), 0px 1px 1px rgba(0, 0, 0, 0.4);
+			border-radius: 6px;
+			opacity: .7;
+
+			&.active{
+				background-color: white;
+				transform: scale(1);
+				opacity: 1;
+			}
+			&:hover{
+				background-color: white;
+			}
+		}
+	
+		h3{
+			color: #666;
+			font-size: 30px;
+		}
+	}
+}
 

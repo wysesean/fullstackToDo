@@ -16,6 +16,7 @@ const usersSchema = new mongoose.Schema({
 })
 
 const taskSchema = new mongoose.Schema({
+  userID: {type:String, required: true},
 	taskDescription: {type:String, required: true},
 	completed: {type:Boolean, default: false},
 	createdAt: {type: Date, default: Date.now}

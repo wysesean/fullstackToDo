@@ -1,10 +1,11 @@
 import React from 'react'
 import ACTIONS from '../actions'
 import STORE from '../store'
+import User from '../models/userModel'
 
 var AllTaskView = React.createClass({
 	componentWillMount: function(){
-		ACTIONS.fetchAllTasks()
+		ACTIONS.fetchUserTasks()
 		STORE.on('dataUpdated', ()=>{
 			this.setState(STORE.data)
 		})
@@ -19,7 +20,11 @@ var AllTaskView = React.createClass({
 		let classValue = 'slide allSlide'
 		return(
 			<div className={classValue+=this.state.activeValue==='allTasks'?' active':''}>
-				<AllTasksList tasks={this.state.taskCollection} />
+				<AllTasksList tasks={this.state.taskCollection
+					.where({
+						userID:User.getCurrentUser().get('_id')
+					})
+				} />
 			</div>
 		)
 	}
@@ -41,7 +46,7 @@ var AllTasksList = React.createClass({
 	render:function(){
 		return(
 			<div className='task-list'>
-				{this.props.tasks.models.map(this._createTaskElements)}
+				{this.props.tasks.map(this._createTaskElements)}
 			</div>
 		)
 	}

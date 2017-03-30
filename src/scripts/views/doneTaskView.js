@@ -1,10 +1,14 @@
 import React from 'react'
 import ACTIONS from '../actions'
 import STORE from '../store'
+import User from '../models/userModel'
+
+import TasksList from '../views/components/taskList'
+
 
 var DoneTaskView = React.createClass({
 	componentWillMount: function(){
-		ACTIONS.fetchAllTasks()
+		ACTIONS.fetchUserTasks()
 		STORE.on('dataUpdated', ()=>{
 			this.setState(STORE.data)
 		})
@@ -20,45 +24,15 @@ var DoneTaskView = React.createClass({
 
 		return(
 			<div className={classValue+=this.state.activeValue==='doneTasks'?' active':''}>
-				<DoneTasksList tasks={this.state.taskCollection.where({completed:true})} />
+				<TasksList tasks={this.state.taskCollection
+					.where({
+						completed:true,
+						userID:User.getCurrentUser().get('_id')
+					})
+				} />
 			</div>
 		)
 	}
 })
-
-//Receives props 'tasks' which is an array called allTasks filled with objects
-var DoneTasksList = React.createClass({
-	//Creates individual task elements
-	_createTaskElements: function(singleElement){
-		return(
-			<TaskElement 
-				key={singleElement.cid}
-				taskDescription={singleElement.attributes.taskDescription}
-			/>
-		)
-	},
-	render:function(){
-		return(
-			<div className='task-list'>
-				{this.props.tasks.map(this._createTaskElements)}
-			</div>
-		)
-	}
-})
-
-//Receives props 'uniqueID' and 'taskDescription'
-var TaskElement = React.createClass({
-	
-	render:function(){
-		return(
-			<div  id='task-element'>
-				<div className='task-wrapper'>
-					<p>{this.props.taskDescription}</p>
-				</div>
-			</div>
-		)
-	}
-})
-
 
 export default DoneTaskView

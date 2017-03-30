@@ -4,13 +4,12 @@ import TextInputField from './components/textInputField'
 import AllTaskView from './allTaskView'
 import UndoneTaskView from './undoneTaskView'
 import DoneTaskView from './doneTaskView'
-import LoginPageView from './loginPageView'
 import NavMenu from './components/navMenu'
 
 var GummyMenu = React.createClass({
 	componentDidMount: function(){
-		//Set Width to 4x the view width to create 4 slides
-		$(".slider-inner").width($(window).width() * 4)
+		//Set Width to 4x the view width to create 3 slides
+		$(".slider-inner").width($(window).width() * 3)
 		//Position each slide
 		$(".slide").each(function(){
 			$(this).width($(window).width());
@@ -33,7 +32,6 @@ var GummyMenu = React.createClass({
 				<div className="nav-container">
 				</div>
 				<div className='slider-inner'>
-					<LoginPageView />
 					<AllTaskView />
 					<DoneTaskView />
 					<UndoneTaskView />

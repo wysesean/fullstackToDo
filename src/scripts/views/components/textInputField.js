@@ -1,6 +1,8 @@
 import React from 'react'
 import STORE from '../../store'
 import ACTIONS from '../../actions'
+import User from '../../models/userModel'
+
 var TextInputField = React.createClass({
 	_handleKeyDown:function(event){
 		if(event.key === 'Enter'){
@@ -18,7 +20,7 @@ var TextInputField = React.createClass({
 	render:function(){
 		return(
 			<div id='textInput'>
-				<textarea onKeyPress={this._handleKeyDown} className='autoExpand' rows='3' data-min-rows='3' placeholder='Create Task'></textarea>
+				<textarea onKeyPress={this._handleKeyDown} rows='3' data-min-rows='3' placeholder='Create Task'></textarea>
 			</div>
 		)
 	}
