@@ -260,6 +260,7 @@ textarea:focus::-webkit-input-placeholder{
 		box-sizing: padding-box;
 		padding: 5px;
 		
+		transition: all 0.25s ease;
 
 		background-color: #888888;
 		width: 33%;
