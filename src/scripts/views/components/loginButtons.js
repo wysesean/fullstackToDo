@@ -26,6 +26,8 @@ var LoginButtons = React.createClass({
 		return(
 			<div className="LoginButton">
 				<nav className='login-nav'>
+					<h1 id='titleToDo'>To Do List</h1>
+
 					<div id='button-wrapper'>
 						<div onClick={this.handleLoginButton} className={this.state.buttonStatus==='loginButtonActive'?'active':''}>
 								<h3>Login</h3>
