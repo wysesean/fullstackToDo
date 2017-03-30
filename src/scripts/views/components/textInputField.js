@@ -7,6 +7,7 @@ var TextInputField = React.createClass({
 	_handleKeyDown:function(event){
 		if(event.key === 'Enter'){
 			var obj = {
+				userID: User.getCurrentUser().get('_id'),
 				taskDescription: event.target.value
 			}
 			location.hash = 'allTasks'

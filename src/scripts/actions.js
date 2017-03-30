@@ -5,7 +5,6 @@ import User from './models/userModel.js'
 var ACTIONS = {
 	//Moves task from done to undone
 	addTask: function(inputObj){
-		inputObj.userID = User.getCurrentUser().get('_id')
 		var taskInstance = new TaskModel(inputObj)
 		taskInstance.save().then(
 			function(response){
